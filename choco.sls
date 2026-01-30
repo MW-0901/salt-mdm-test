@@ -1,3 +1,9 @@
-chocolatey_bootstrap:
-  chocolatey.bootstrapped:
-    - force: False
+choco_install:
+  cmd.run:
+    - name: |
+        if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          [System.Net.ServicePointManager]::SecurityProtocol = 3072
+          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+        }
+    - shell: powershell
