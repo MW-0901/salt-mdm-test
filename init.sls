@@ -1,5 +1,9 @@
 test_file:
   file.managed:
-    - name: C:\Users\danwi\test\test.txt
-    - contents: "Salt is DEFINITELY working, and was updated automatically! Updated at {{ salt['cmd.run']('powershell -Command "Get-Date"') }}"
+    - name: C:\Users\danwi\salt-status\status.txt
+    - contents: "Updated at {{ salt['cmd.run']('powershell -Command "Get-Date"') }}"
     - makedirs: True
+
+chocolatey-bootstrap:
+  chocolatey.bootstrapped:
+    - force: True
