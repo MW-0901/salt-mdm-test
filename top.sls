@@ -1,3 +1,4 @@
 main:
   '*':
-    - init
+    - status
+    - choco
