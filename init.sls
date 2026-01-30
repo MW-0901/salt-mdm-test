@@ -4,6 +4,5 @@ test_file:
     - contents: "Updated at {{ salt['cmd.run']('powershell -Command "Get-Date"') }}"
     - makedirs: True
 
-chocolatey-bootstrap:
-  chocolatey.bootstrapped:
-    - force: True
+bootstrap_chocolatey:
+  chocolatey.bootstrapped
