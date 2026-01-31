@@ -1,4 +1,6 @@
-$Action = New-ScheduledTaskAction -Execute 'PowerShell.exe' -Argument '-ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\management\ensure-smb.ps1"'
+$Action = New-ScheduledTaskAction `
+  -Execute "wscript.exe" `
+  -Argument """C:\management\ensure-smb.vbs"""
 
 $Trigger1 = New-ScheduledTaskTrigger -AtStartup
 $Trigger2 = New-ScheduledTaskTrigger -AtLogOn
