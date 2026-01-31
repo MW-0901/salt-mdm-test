@@ -30,7 +30,6 @@ Register-ScheduledTask `
   -Settings $Settings
 
 Write-Host "Scheduled task 'Puppet Sync' created successfully"
-Write-Host "Task will run at :00 and :30 of every hour"
 
 Start-ScheduledTask -TaskName "Puppet Sync"
-Write-Host "Task started for immediate test run"
+puppet module install puppetlabs-chocolatey
