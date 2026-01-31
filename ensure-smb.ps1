@@ -1,17 +1,17 @@
 $DriveLetter = "Z:"
+$DriveName = "Z"
 $NetworkPath = "\\100.100.6.49\shared"
 $Username = "mark"
 $Password = "G0B3@RS"
 
-try {
-    if (Test-Path "$DriveLetter\") {
-        exit 0
-    }
-} catch {
-    net use $DriveLetter /delete 2>$null
-}
+Remove-PSDrive -Name $DriveName -ErrorAction SilentlyContinue
 
-try {
-    net use $DriveLetter $NetworkPath /user:$Username $Password /persistent:yes 2>&1 | Out-Null
-} catch {
+net use $DriveLetter /delete /yes 2>$null
+
+$result = net use $DriveLetter $NetworkPath /user:$Username $Password /persistent:yes 2>&1
+
+if (Test-Path "$DriveLetter\") {
+    exit 0
+} else {
+    exit 1
 }
