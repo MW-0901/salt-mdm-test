@@ -1,2 +1,0 @@
-chocolatey:
-  pkg.installed
